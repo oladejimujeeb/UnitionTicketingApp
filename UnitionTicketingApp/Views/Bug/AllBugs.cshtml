@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BugViewModel>
+@{
+    ViewData["Title"] = "Bug";
+    Layout = "_Layout";
+}
+
+@* <div>
+    <a asp-controller="Bug" asp-action="AllBugs" class="btn btn-secondary">Home</a>
+</div> *@
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bug Title</th>
+                <th>Bug Summary</th>
+                <th>Bug Description</th>
+                <th>Bug Status</th>
+                <th>Bug Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bug in Model)
+            {
+                <tr>
+                    <th>@bug.BugTitle</th>
+                    <th>@bug.BugSummary</th>
+                    <th>@bug.BugDescription</th>
+                    <th>@bug.BugStatus</th>
+                    <th>@bug.BugCreatedOn</th>
+                    <th><a asp-action="DeleteBug" asp-route-Id="@bug.BugId" class="btn btn-danger">Delete</a></th>
+                    <th><a asp-action="UpdateBugStatus" asp-route-Id="@bug.BugId" class="btn btn-primary">Update Status</a></th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div style="padding:10px">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th><a asp-controller="Bug" asp-action="CreateBug" class="btn btn-outline-primary">Create Bug</a></th>
+            </tr>
+        </tbody>
+    </table>
+</div>

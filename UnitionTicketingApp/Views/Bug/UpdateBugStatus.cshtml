@@ -1,0 +1,36 @@
+﻿@model BugViewModel
+@{
+    ViewData["Title"] = "Update Bug Status";
+    Layout = "_Layout";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateBugStatus">
+            <div class="form-group">
+                <label class="control-label">Bug Title</label>
+                <input asp-for="BugTitle" type="text" readonly value="@Model.BugTitle" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Bug Summary</label>
+                <input asp-for="BugTitle" type="text" readonly value="@Model.BugSummary" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Bug Description</label>
+                <input asp-for="BugTitle" type="text" readonly value="@Model.BugDescription" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Bug Status</label>
+                <select name="status" class="form-control" required>
+                    <option value="@Model.BugStatus">@Model.BugStatus</option>
+                    <option value="Open">Open</option>
+                    <option value="Close">Close</option>
+                    <option value="Resolve">Resolve</option>
+                    <option value="Active">Active</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Status" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
